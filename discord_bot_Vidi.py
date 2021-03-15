@@ -13,7 +13,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = discord.Client()
 
-bot = commands.Bot(command_prefix='-')
+bot = commands.Bot(command_prefix='!')
 
 
 @bot.command(name='99')
@@ -37,6 +37,10 @@ async def stock_tesla(ctx, arg):
         if '<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)" data-reactid="51">' in gain[0]:
             g = gain[0].replace('<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)" data-reactid="51">', '')
             x = g.replace('</span>', '')
+
+        elif '<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)" data-reactid="43">' in gain[0]:
+            s  = gain[0].replace('<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)" data-reactid="43">','')
+            x = s.replace('</span', '')
         else:
             h = gain[0].replace('<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)" data-reactid="34">', '')
             x = h.replace('</span>', '')
@@ -48,6 +52,9 @@ async def stock_tesla(ctx, arg):
         if '<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)" data-reactid="51">' in gain[0]:
             e = gain[0].replace('<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)" data-reactid="51">', '')
             x = e.replace('</span>', '')
+        elif '<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)" data-reactid="43">' in gain[0]:
+            t = gain[0].replace('<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)" data-reactid="43">', '')
+            x = t.replace('</span>', '')
         else:
             f = gain[0].replace('<span class="Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)" data-reactid="34">', '')
             x = f.replace('</span>', '')
@@ -59,6 +66,8 @@ async def stock_tesla(ctx, arg):
         # Price
         if '<span class="Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)" data-reactid="50">' in final_info[0]:
             s = final_info[0].replace('<span class="Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)" data-reactid="50">', '')
+        elif '<span class="Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)" data-reactid="42">' in final_info[0]:
+            s = final_info[0].replace('<span class="Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)" data-reactid="42">', '')
         else:
             s = final_info[0].replace('<span class="Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)" data-reactid="33">', '')
 
